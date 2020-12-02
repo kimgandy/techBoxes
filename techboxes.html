@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            border: thin solid black;
+        }
+        .wrapper
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            height: 600px;
+            width: 600px;
+        }
+     
+    </style>
+    <script>
+        randomColor = (myDiv) => {
+            colorValue = '#'+Math.floor(Math.random()*16777215).toString(16);
+            myDiv.style.backgroundColor=colorValue;
+            myDiv.style.boxShadow='0 0 8px magenta';
+
+        }
+
+        resetBorder = (myDiv) => {
+            myDiv.style.boxShadow='0 0 0 blue';
+        }
+        fillSquare = () => {
+            document.getElementById("bigBox").innerHTML ="";
+
+            for(i = 0; i<36; i++){
+                document.getElementById("bigBox").innerHTML +='<div onmouseover="randomColor(this)" onmouseout="resetBorder(this)"></div>';
+            }
+        }
+    </script>
+
+</head>
+
+
+
+
+<body>
+    <div class="wrapper" id="bigBox">
+        <button onclick="fillSquare()">Play The Game!</button>
+    </div>
+
+
+
+</body>
+</html>
